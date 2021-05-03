@@ -1,16 +1,25 @@
 :root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
   --grid-rows: 1;
   --grid-cols: 1;
-  --colour-grey-scale: 0;
+  --btn-border-colour: white;
+}
+
+#btn-container,
+#colour-picker-container {
+  display: flex;
+  justify-content: center;
 }
 
 #container {
   display: grid;
-  justify-content: center;
+  margin: auto;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-  width: 45em;
-  height: 45em;
+  width: 40%;
+  height: 40%;
 }
 
 .grid-item {
@@ -22,8 +31,59 @@
   text-align: center;
 }
 
+button {
+  background-color: #f8f9fa;
+  border: 1px solid var(--btn-border-colour);
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+#colour-picker-container,
+#btn-container {
+  margin: 1.5em;
+}
+
+#colour-picker-label {
+  padding-right: 1em;
+}
+
+#btn-container {
+  justify-content: space-evenly;
+  margin-left: 22%;
+  margin-right: 22%;
+}
+
 .slideContainer {
-  width: 20em;
+  display: flex;
+  margin: auto;
+  width: 50%;
+}
+
+p {
+  margin-top: 0;
+}
+
+#size-input-box {
+  width: 30%;
+}
+
+#myRange {
+  margin-top: 1em;
+  margin-bottom: 2em;
 }
 
 .slider {

@@ -12,7 +12,7 @@ let gridColour = "rgba(0,0,0,1)";
 let numSquares = 0;
 
 let slider = document.querySelector("#myRange");
-let outputSize = document.querySelector("#demo");
+let outputSize = document.querySelector("#size-input-box");
 outputSize.innerHTML = slider.value;
 
 colourPicker.value = "rgba(0,0,0,1)";
@@ -38,25 +38,36 @@ slider.oninput = function () {
 };
 
 clearButton.addEventListener("click", () => {
-  resetGrid();
+  isGridRainbow = false;
+  isGridGrayScale = false;
+  isEraser = false;
+  clearGrid();
+  resetButtons(clearButton);
 });
 
 rainbowButton.addEventListener("click", () => {
   isGridGrayScale = false;
   isEraser = false;
   isGridRainbow = true;
+  resetButtons(rainbowButton);
+  rainbowButton.style.setProperty(
+    "--btn-border-colour",
+    generateRandomColour()
+  );
 });
 
 grayScaleButton.addEventListener("click", () => {
   isGridRainbow = false;
   isEraser = false;
   isGridGrayScale = true;
+  resetButtons(grayScaleButton);
 });
 
 eraserButton.addEventListener("click", () => {
   isGridRainbow = false;
   isGridGrayScale = false;
   isEraser = true;
+  resetButtons(eraserButton);
 });
 
 function makeRows(rows, cols) {
@@ -95,9 +106,23 @@ function makeRows(rows, cols) {
   }
 }
 
-function resetGrid() {
+function resetButtons(btn) {
+  let buttons = Array.from(document.querySelectorAll(".button"));
+  buttons.forEach((node) =>
+    node.style.setProperty("--btn-border-colour", "white")
+  );
+  btn.style.setProperty("--btn-border-colour", "black");
+}
+
+function clearGrid() {
   let cell = Array.from(document.querySelectorAll(".grid-item"));
   cell.forEach((node) => (node.style.backgroundColor = "rgba(255,255,255,1)"));
+}
+
+function resetGrid() {
+  let cell = Array.from(document.querySelectorAll(".grid-item"));
+  cell.forEach((node) => node.remove());
+  makeRows(slider.value, slider.value);
 }
 
 function generateRandomColour() {

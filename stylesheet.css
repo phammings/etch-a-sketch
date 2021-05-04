@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: "Press Start 2P", cursive;
   --grid-rows: 1;
   --grid-cols: 1;
   --btn-border-colour: white;
@@ -31,12 +32,23 @@
   text-align: center;
 }
 
+#colour-picker {
+  background-color: #ececec;
+  border: 1px solid #b3b3b3;
+  border-radius: 4px;
+}
+
+#colour-picker:hover {
+  background-color: #cccccc;
+  border: 1px solid black;
+  transition: 0.5s;
+}
+
 button {
-  background-color: #f8f9fa;
+  background-color: #ececec;
   border: 1px solid var(--btn-border-colour);
   border-radius: 4px;
   color: #3c4043;
-  font-family: arial, sans-serif;
   font-size: 14px;
   margin: 11px 4px;
   padding: 0 16px;
@@ -46,6 +58,11 @@ button {
   text-align: center;
   cursor: pointer;
   user-select: none;
+}
+
+button:hover {
+  background-color: #b9b9b9;
+  transition: 0.5s;
 }
 
 h1 {
@@ -118,4 +135,51 @@ p {
   border-radius: 50%;
   background: white;
   cursor: pointer;
+}
+
+@media (max-height: 780px) {
+  #container {
+    width: 30%;
+    height: 30%;
+  }
+}
+
+@media (max-height: 630px) {
+  #container {
+    width: 25%;
+    height: 25%;
+  }
+  p,
+  #colour-picker-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 385px), (max-height: 540px) {
+  #container {
+    width: 20%;
+    height: 20%;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 750px) {
+  button {
+    font-size: 8px;
+  }
+  h1 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  button {
+    font-size: 4px;
+  }
+  h1 {
+    font-size: 12px;
+  }
 }

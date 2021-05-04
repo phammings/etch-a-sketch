@@ -43,6 +43,7 @@ clearButton.addEventListener("click", () => {
   isEraser = false;
   clearGrid();
   resetButtons(clearButton);
+  setTimeout(resetClearButton, 1000);
 });
 
 rainbowButton.addEventListener("click", () => {
@@ -104,6 +105,10 @@ function makeRows(rows, cols) {
       cell.style.backgroundColor = gridColour;
     });
   }
+}
+
+function resetClearButton() {
+  clearButton.style.setProperty("--btn-border-colour", "white");
 }
 
 function resetButtons(btn) {

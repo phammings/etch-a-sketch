@@ -126,6 +126,7 @@ p {
   height: 25px;
   border-radius: 50%;
   background: white;
+  border: 1px solid black;
   cursor: pointer;
 }
 
@@ -134,6 +135,7 @@ p {
   height: 25px;
   border-radius: 50%;
   background: white;
+  border: 1px solid black;
   cursor: pointer;
 }
 
